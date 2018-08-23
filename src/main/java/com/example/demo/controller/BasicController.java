@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Memo;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,15 @@ public class BasicController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public User index(@PathVariable Long id){
 
         return userService.getUser(id);
+    }
+
+    @RequestMapping(value = "/memo/{id}", method = RequestMethod.GET)
+    public Memo getMemo(@PathVariable Long id){
+
+        return userService.getMemo(id);
     }
 }
